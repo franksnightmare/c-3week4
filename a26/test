@@ -1,0 +1,20 @@
+#include <header1>
+#include "header2"	
+
+R"weird\tchars\n"
+
+// Comment here
+
+"string here"
+
+/* cstyle
+comment
+here */
+
+"compound strings\n"
+"ahoy?"
+
+sdfs
+
+"another test
+see if this works"

@@ -6,12 +6,14 @@
 // $insert baseclass_h
 #include "Scannerbase.h"
 
-enum Tokens
+enum Token
 {
-	STRING,
-	RSTRING,
-	STRING_SEG,
-	COMMENT
+	STRING = 1,
+	RSTRING = 2,
+	STRING_SEG = 3,
+	COMMENT = 4,
+	HEADER = 5,
+	OTHER = 6
 };
 
 // $insert classHead
