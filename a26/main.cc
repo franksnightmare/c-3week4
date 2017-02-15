@@ -1,43 +1,15 @@
-#include "Scanner.h"
-
-using namespace std;
-
-string dequote(string const &str)
-{
-	size_t start = str.find('\"') + 1;
-	return str.substr(start, str.length() - (start + 1));
-}
-
-char getRawChar(char rawChar)
-{
-	switch(rawChar)
-	{
-		case('n'):
-			return '\n';
-		case('t'):
-			return '\t';
-		case('\\'):
-			return '\\';
-		case('\"'):
-			return '\"';
-		case('\''):
-			return '\'';
-	}
-	return ' ';
-}
-
-void makeRaw(string &str)
-{	
-	for (auto idx = str.begin(); idx != str.end(); ++idx)
-	{
-		if (*idx == '\\')
-			idx = str.insert(idx, '\\') + 1;
-	}
-}
+#include "main.ih"
 
 int main(int argc, char **argv)
 {
+	if (argc <= 1)
+	{
+		cerr << "Please give your c/c++ file path.\n";
+		return 1;
+	}
+	
 	Scanner scanner;
+	Writer writer;
 	
 	string str;
 	while (int token = scanner.lex())
