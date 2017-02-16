@@ -35,7 +35,8 @@ class Writer
 		void writeCode(std::string const &str);
 	
 	private:
-		void grab(std::string const &str, std::size_t index);
+		void grab(std::string const &str,
+			std::size_t index);
 };
 
 #endif

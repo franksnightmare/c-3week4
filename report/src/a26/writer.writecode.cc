@@ -3,5 +3,6 @@
 
 void Writer::writeCode(string const &str)
 {
-	write(d_tempFD, str.c_str(), sizeof(char) * str.size());
+	write(d_tempFD, str.c_str(),
+		sizeof(char) * str.size());
 }

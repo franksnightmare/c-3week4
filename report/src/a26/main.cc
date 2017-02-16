@@ -41,7 +41,8 @@ int main(int argc, char **argv)
 				{
 					string temp(scanner.matched());
 					temp = temp.substr(0, temp.length() - 1);
-					str += temp.substr(0, temp.find_last_of('\"'));
+					str += temp.substr(0,
+						temp.find_last_of('\"'));
 				}
 				break;
 			
