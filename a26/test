@@ -1,5 +1,5 @@
 #include <header1>
-#include "header2"	
+#include "header2"
 
 R"weird\tchars\n"
 
@@ -14,7 +14,8 @@ here */
 "compound strings\n"
 "ahoy?"
 
-sdfs
+// "STRING IN COMMENTS"
 
-"another test
-see if this works"
+return of "string here"
+
+and "compound strings\nahoy?" is back

@@ -16,7 +16,7 @@ SPACE						[ \t\n]
 								begin(StartCondition__::INITIAL);
 								return COMMENT;
 							}
-<cComment>.					more();
+<cComment>{SPACE}|.			more();
 
 "//"						{
 								begin(StartCondition__::EOLcomment);

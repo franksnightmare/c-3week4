@@ -8,7 +8,9 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	
-	Scanner scanner;
+	ifstream input;
+	input.open(argv[1]);
+	Scanner scanner(input, cout);
 	Writer writer(argv[1]);
 	
 	string str;
@@ -20,10 +22,9 @@ int main(int argc, char **argv)
 			case (STRING):
 				str += scanner.matched();
 				str = dequote(str);
-				cout << str;
+				// cout << str;
+				writer.addString(str);
 				str = string{};
-				// cout << "grabbed(1, asfsdf.sdf)";
-				// do magick and write to file(s)
 				break;
 			
 			// Case for raw string
@@ -31,10 +32,9 @@ int main(int argc, char **argv)
 				str += scanner.matched();
 				str = dequote(str);
 				makeRaw(str);
-				cout << str;
+				// cout << str;
+				writer.addString(str);
 				str = string{};
-				// cout << "grabbed(1, asfsdf.sdf)";
-				// do magick and write to file(s)
 				break;
 			
 			case (STRING_SEG):
@@ -47,8 +47,7 @@ int main(int argc, char **argv)
 			
 			// Anything else
 			default:
-				cout << scanner.matched();
-				// write to file
+				writer.writeCode(scanner.matched());
 				break;
 		}
 	}

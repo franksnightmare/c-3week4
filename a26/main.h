@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <fstream>
 
 #include "Scanner.h"
 
@@ -30,10 +31,11 @@ class Writer
 		Writer(std::string const &path);
 		~Writer();
 		
-		void add(std::string const &str);
+		void addString(std::string const &str);
+		void writeCode(std::string const &str);
 	
 	private:
-		void transform(std::string const &str, std::size_t index);
+		void grab(std::string const &str, std::size_t index);
 };
 
 #endif
