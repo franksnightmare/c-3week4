@@ -1,0 +1,21 @@
+#include <header1>
+#include "header2"
+
+R"weird\tchars\n"
+
+// Comment here
+
+"string here"
+
+/* cstyle
+comment
+here */
+
+"compound strings\n"
+"ahoy?"
+
+// "STRING IN COMMENTS"
+
+return of "string here"
+
+and "compound strings\nahoy?" is back
