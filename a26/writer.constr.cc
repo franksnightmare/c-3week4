@@ -1,14 +1,21 @@
 #include "main.ih"
 
 Writer::Writer(string const &path)
+:
+	d_path(path),
+	d_tempPath(path + ".tmp")
 {
-	string tempPath = path + ".tmp";
-	if ((d_targetFD = open(tempPath)) < 0)
-		cerr << "Couldn't open file " << tempPath << '\n';
+	{
+		size_t idx = path.find_last_of('.');
+		if (idx == string::npos)
+			d_gslPath = path + ".gsl";
+		else
+			d_gslPath = path.substr(0, path.find_last_of('.')) + "gsl";
+	}
 	
-	string gslPath(path.substr(0, path.find_last_of('.')));
-	gslPath += "gsl";
+	if ((d_tempFD = open(d_tempPath.c_str(), 0)) < 0)
+		cerr << "Couldn't open file " << d_tempPath << '\n';
 	
-	if ((d_gslFD = open(gslPath)) < 0)
-		cerr << "Couldn't open file " << gslPath << '\n';
+	if ((d_gslFD = open(d_gslPath.c_str(), 0)) < 0)
+		cerr << "Couldn't open file " << d_gslPath << '\n';
 }

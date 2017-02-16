@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 	}
 	
 	Scanner scanner;
-	Writer writer;
+	Writer writer(argv[1]);
 	
 	string str;
 	while (int token = scanner.lex())
