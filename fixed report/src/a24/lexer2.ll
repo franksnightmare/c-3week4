@@ -1,6 +1,4 @@
-NONBLANK									[a-zA-Z\-]	
-NOHOLDBOAT									[^hold|boat]
-HOLDBOAT									[hold|boat]
+NONBLANK									[a-zA-Z\-]
 
 %%
 	
