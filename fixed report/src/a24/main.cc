@@ -5,8 +5,7 @@ try
 {
     Scanner scanner;
 
-    while (scanner.lex())
-        ;
+    while (scanner.lex());
 }
 catch (...)
 {

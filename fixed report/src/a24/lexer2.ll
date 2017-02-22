@@ -9,8 +9,8 @@ house/(hold|boat)							{
 											}
 											
 {NONBLANK}*house{NONBLANK}*					{
-												std::cout << matched() << '\n';
+												std::cout << matched();
 												return WORD;
 											}
 											
-\n					// ignore
+\n											std::cout << matched()[0];
