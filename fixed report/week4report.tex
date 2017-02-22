@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+
+\usepackage{times}
+\usepackage[english]{babel}
+
+% -----------------------------------------------
+% especially use this for you code
+% -----------------------------------------------
+
+\usepackage{courier}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{graphicx}
+
+\definecolor{Gray}{gray}{0.95}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{language=C++,
+	basicstyle = \normalsize\ttfamily,   % the size and fonts that are used
+	tabsize = 2,                    % sets default tabsize
+	breaklines = true,              % sets automatic line breaking
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{mygreen}\ttfamily,
+	numbers=left,
+	keepspaces=true,
+	showspaces=false,
+	showstringspaces=false,
+}
+
+\begin{document}
+
+\title{Programming in C/C++ \\
+       Exercises set four: lexical scanners
+}
+\date{\today}
+\author{Christiaan Steenkist \\
+Jaime Betancor Valado \\
+Remco Bos \\
+}
+
+\maketitle
+\section*{Exercise 23, Embedded patterns}
+We were tasked to construct a program that uses a scanner for printing all the sorted words finded in a piece of text.
+\subsection*{Code listings}
+\lstinputlisting[caption = main.ih]{src/a23/main.ih}
+\lstinputlisting[caption = main.cc]{src/a23/main.cc}
+\lstinputlisting[caption = lexer.ll]{src/a23/lexer.ll}
+\lstinputlisting[caption = Scanner.h]{src/a23/Scanner.h}
+\section*{Exercise 24, Non-greedy matching}
+We made a lexical scanners that performs non-greedy matching.
+
+\subsection*{Code listings}
+\lstinputlisting[caption = main.ih]{src/a24/main.ih}
+\lstinputlisting[caption = main.cc]{src/a24/main.cc}
+\lstinputlisting[caption = lexer.ll]{src/a24/lexer.ll}
+\lstinputlisting[caption = Scanner.h]{src/a24/Scanner.h}
+
+\section*{Exercise 26}
+See exercise 28.
+
+\section*{Exercise 27, tokens}
+Why are there so many operators?
+
+\subsection*{Lexer}
+\lstinputlisting[caption = lexer.ll]{src/a27/lexer.ll}
+
+\section*{Exercise 28, scanner that scans text}
+We were asked to design a scanner thats scan a piece of text.
+
+\subsection*{Code listings}
+\lstinputlisting[caption = main.h]{src/a26/main.h}
+\lstinputlisting[caption = main.ih]{src/a26/main.ih}
+\lstinputlisting[caption = main.cc]{src/a26/main.cc}
+\lstinputlisting[caption = getrawchar.cc]{src/a26/getrawchar.cc}
+\lstinputlisting[caption = dequote.cc]{src/a26/dequote.cc}
+\lstinputlisting[caption = makeraw.cc]{src/a26/makeraw.cc}
+
+\subsubsection*{Lexer and scanner}
+\lstinputlisting[caption = lexer.ll]{src/a26/lexer.ll}
+\lstinputlisting[caption = Scanner.h]{src/a26/Scanner.h}
+
+\subsubsection*{Writer}
+\lstinputlisting[caption = writer.addString.cc]{src/a26/writer.addString.cc}
+\lstinputlisting[caption = writer.constr.cc]{src/a26/writer.constr.cc}
+\lstinputlisting[caption = writer.grab.cc]{src/a26/writer.destr.cc}
+\lstinputlisting[caption = writer.writecode.cc]{src/a26/writer.writecode.cc}
+
+\subsubsection*{Input}
+\lstinputlisting[caption = test]{src/a26/test.txt}
+
+\subsubsection*{Output}
+\lstinputlisting[caption = test.cc]{src/a26/testfile/test.cc}
+\lstinputlisting[caption = test.gsl]{src/a26/testfile/test.gsl}
+
+\end{document}
