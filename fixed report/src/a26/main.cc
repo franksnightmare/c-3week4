@@ -14,6 +14,7 @@ int main(int argc, char **argv)
 	Writer writer(argv[1]);
 	
 	string str;
+	string delimeter;
 	while (int token = scanner.lex())
 	{
 		switch (token)
@@ -21,26 +22,32 @@ int main(int argc, char **argv)
 			// Case for normal string
 			case (STRING):
 				str += scanner.matched();
-				str = dequote(str);
-				// cout << str;
-				writer.addString(str);
-				str = string{};
+				processString(str, writer);
 				break;
 			
 			// Case for raw string
 			case (RSTRING):
 				str += scanner.matched();
-				str = dequote(str);
-				makeRaw(str);
-				// cout << str;
-				writer.addString(str);
-				str = string{};
+				if (!checkDelimeter(delimeter, str))
+					break;
+				str = str.substr(0,
+					str.find_last_of(')')) + '\"';
+				processString(str, writer, makeRaw);
+				delimeter = string{};
+				break;
+			
+			case (RSTRING_START):
+				str += scanner.matched();
+				delimeter = str.substr(2,str.length() - 1);
+				str = "\"";
 				break;
 			
 			case (STRING_SEG):
 				{
 					string temp(scanner.matched());
+					// remove second starting quote
 					temp = temp.substr(0, temp.length() - 1);
+					// add until first closing quote
 					str += temp.substr(0,
 						temp.find_last_of('\"'));
 				}

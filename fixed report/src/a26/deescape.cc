@@ -1,11 +1,14 @@
 #include "main.ih"
 
-void makeRaw(string &str)
-{
+void deEscape(string &str)
+{	
 	for (auto idx = str.begin();
 		idx != str.end(); ++idx)
 	{
-		if (*idx == '\\')
+		if (isEscape(*idx))
+		{
+			*idx = escapeChar(*idx);
 			idx = str.insert(idx, '\\') + 1;
+		}
 	}
 }

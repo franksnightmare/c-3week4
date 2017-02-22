@@ -10,11 +10,12 @@
 enum Token
 {
 	STRING = 1,
-	RSTRING = 2,
-	STRING_SEG = 3,
-	COMMENT = 4,
-	HEADER = 5,
-	OTHER = 6
+	RSTRING_START = 2,
+	RSTRING = 3,
+	STRING_SEG = 4,
+	COMMENT = 5,
+	HEADER = 6,
+	OTHER = 7
 };
 
 // $insert classHead

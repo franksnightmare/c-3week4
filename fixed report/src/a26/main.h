@@ -13,8 +13,10 @@
 
 std::string dequote(std::string const &str);
 
-char getRawChar(char rawChar);
 void makeRaw(std::string &str);
+char escapeChar(char rawChar);
+bool isEscape(char rawChar);
+void deEscape(std::string &str);
 
 class Writer
 {
@@ -38,5 +40,10 @@ class Writer
 		void grab(std::string const &str,
 			std::size_t index);
 };
+
+bool checkDelimeter(std::string const &delim,
+	std::string const &str);
+void processString(std::string &str, Writer &writer,
+	void (*func)(std::string &) = [](std::string &){});
 
 #endif

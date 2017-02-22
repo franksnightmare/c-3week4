@@ -1,5 +1,4 @@
 %x cComment
-%x EOLcomment
 %x string
 %x rawString
 %x header
@@ -18,16 +17,10 @@ SPACE						[ \t\n]
 							}
 <cComment>{SPACE}|.			more();
 
-"//"						{
-								begin(StartCondition__::EOLcomment);
-								more();
-							}
-<EOLcomment>\n				{
-								begin(StartCondition__::INITIAL);
+"//".*\n					{
 								redo(1);
 								return COMMENT;
 							}
-<EOLcomment>.				more();
 
 \"							{
 								begin(StartCondition__::string);
@@ -38,20 +31,18 @@ SPACE						[ \t\n]
 								return STRING;
 							}
 <string>\"{SPACE}*\"		return STRING_SEG;
-<string>\n					more();
+<string>\n					// ignore
 <string>.					more();
 
-"R\""						{
-								begin(StartCondition__::rawString);
-								more();
-							}
-<rawString>\"				{
-								begin(StartCondition__::INITIAL);
-								return RSTRING;
-							}
-<rawString>\"{SPACE}*\"		return STRING_SEG;
-<rawString>\n				more();
-<rawString>.				more();
+"R\""([^()\"]{1,16})?"("			{
+									begin(StartCondition__::rawString);
+									return RSTRING_START;
+								}
+<rawString>")"([^()\"]{1,16})?"\""	{
+									begin(StartCondition__::INITIAL);
+									return RSTRING;
+								}
+<rawString>.|\n					more();
 
 "#include <"|"#include \""	{
 								begin(StartCondition__::header);

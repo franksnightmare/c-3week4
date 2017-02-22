@@ -1,20 +1,20 @@
 #include <header1>
 #include "header2"
 
-grabbed(1, "testfile/test.gsl")
+grabbed(1, "test.gsl")
 
 // Comment here
 
-grabbed(2, "testfile/test.gsl")
+grabbed(2, "test.gsl")
 
 /* cstyle
 comment
 here */
 
-grabbed(3, "testfile/test.gsl")
+grabbed(3, "test.gsl")
 
 // "STRING IN COMMENTS"
 
-return of grabbed(1, "testfile/test.gsl")
+return of grabbed(1, "test.gsl")
 
-and grabbed(2, "testfile/test.gsl") is back
+and grabbed(2, "test.gsl") is back
